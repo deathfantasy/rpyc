@@ -377,7 +377,7 @@ class ThreadPoolServer(Server):
                     # workaround for SelectingPoll on Windows not handling poll errors
                     try:
                         # try pinging the fd to see if it's still alive
-                        select.select([fd], [], [], 0.2)
+                        select.select([fd], [], [], 0)
                     except select.error as err:
                         # it's dead, drop connection
                         self._drop_connection(fd)
